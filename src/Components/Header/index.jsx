@@ -1,18 +1,21 @@
-import { Container, Profile } from "./style";
+import { RiShutDownLine } from "react-icons/ri";
+import { Container, Profile, Logout } from "./styles";
 
 export function Header() {
   return (
     <Container>
       <Profile>
-        <img
-          src="https://github.com/LucasFMarques2.png"
-          alt="Foto do usuário"
-        />
+        <img src="https://github.com/LucasFMarques2.png" alt="Foto do usuário" />
+
         <div>
-          <span>Bem-Vindo</span>
-          <strong>Lucas Freitas Marques</strong>
+          <span>Bem-vindo</span>
+          <strong>Lucas Freitas</strong>
         </div>
       </Profile>
+
+      <Logout>
+        <RiShutDownLine />
+      </Logout>
     </Container>
   );
 }
