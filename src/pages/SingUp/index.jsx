@@ -1,6 +1,6 @@
 import { Container, Form, Background } from "./style";
 import { FiLogIn, FiMail, FiLock, FiUser } from "react-icons/fi";
-
+import {Link} from 'react-router-dom'
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { ButtonText } from "../../components/ButtonText";
@@ -20,7 +20,7 @@ export function SingUp() {
         <Input placeholder="Senha" type="password" icon={FiLock} />
         <Button title="Cadastrar" />
 
-        <a href="#">Voltar para login</a>
+        <Link to="/">Voltar para login</Link>
       </Form>
     </Container>
   );
