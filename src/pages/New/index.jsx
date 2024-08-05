@@ -1,10 +1,10 @@
 import { Container, Form } from "./styled";
-import { Header } from "../../components/Header";
-import { Input } from "../../components/Input";
-import { TextArea } from "../../components/TextArea";
-import { NoteItem } from "../../components/NoteItem";
-import { Section } from "../../components/Section";
-import { Button } from "../../components/Button";
+import { Header } from "../../Components/Header";
+import { Input } from "../../Components/Input";
+import { TextArea } from "../../Components/TextArea";
+import { NoteItem } from "../../Components/NoteItem";
+import { Section } from "../../Components/Section";
+import { Button } from "../../Components/Button";
 import {Link} from 'react-router-dom'
 
 export function New() {

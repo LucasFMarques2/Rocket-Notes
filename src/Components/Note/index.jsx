@@ -1,5 +1,5 @@
 import { Container } from "./styled";
-import { Tag } from "../../components/Tag";
+import { Tag } from "../../Components/Tag";
 
 export function Note({ data, ...rest }) {
   return (
