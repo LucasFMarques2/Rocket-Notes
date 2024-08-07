@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { api } from "../../services/api";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 
 import { Container, Form } from "./styled";
 
@@ -10,6 +10,7 @@ import { TextArea } from "../../Components/TextArea";
 import { NoteItem } from "../../Components/NoteItem";
 import { Section } from "../../Components/Section";
 import { Button } from "../../Components/Button";
+import { ButtonText } from "../../Components/ButtonText";
 
 
 export function New() {
@@ -42,6 +43,10 @@ export function New() {
     setTags(prevState => prevState.filter(tag => tag !== deleted))
   }
 
+  function handleBack(){
+    navigate(-1)
+  }
+
   async function handleNewNote(){
     if(newLink){
       return alert("Existe uma link no campo de adicionar, mas não adicionou")
@@ -57,7 +62,7 @@ export function New() {
     });
 
     alert("Nota cadastrada com sucesso!");
-    navigate("/")
+    navigate(-1)
   }
 
   return (
@@ -67,7 +72,7 @@ export function New() {
         <Form>
           <header>
             <h1>Criar nota</h1>
-            <Link to="/">Voltar</Link>
+            <ButtonText title="Voltar" onClick={handleBack}/>
           </header>
 
           <Input placeholder="Título" type="Text" onChange={e => setTitle(e.target.value)}/>
