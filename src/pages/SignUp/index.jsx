@@ -11,7 +11,7 @@ import { Button } from "../../Components/Button";
 import { Container, Form, Background } from "./style";
 
 
-export function SingUp() {
+export function SignUp() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password,setPassword] = useState("")

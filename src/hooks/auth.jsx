@@ -35,34 +35,39 @@ function AuthProvider({ children }) {
   }
 
   async function updateProfile({ user, avatarFile }) {
-
-    if(avatarFile){
-      const fileUploadForm = new FormData();
-      fileUploadForm.append("avatar", avatarFile);
-
-      const response = await api.patch("users/avatar", fileUploadForm);
-      user.avatar = response.data.avatar;
-    }
-
     try {
-      await api.put("/users", user);
-      localStorage.setItem("rocketnotes:user", JSON.stringify(user));
-      setData({ user, token: data.token });
-      alert("Perfil atualizado");
-      window.location.reload();
+      if (avatarFile) {
+        const fileUploadForm = new FormData();
+        fileUploadForm.append("avatar", avatarFile);
+  
+        const response = await api.patch("users/avatar", fileUploadForm);
+        const updatedAvatar = response.data.avatar;
+  
+        user.avatar = updatedAvatar;
+        localStorage.setItem("@rocketnotes:user", JSON.stringify(user));
+        setData({ user, token: data.token });
+  
+        alert("Avatar atualizado");
+      } else {
+        await api.put("/users", user);
+        localStorage.setItem("@rocketnotes:user", JSON.stringify(user));
+        setData({ user, token: data.token });
+        alert("Perfil atualizado");
+      }
     } catch (err) {
       if (err.response) {
         alert(err.response.data.message);
       } else {
-        alert("Não foi alterar informações");
+        alert("Não foi possível alterar informações");
       }
     }
   }
+  
 
   useEffect(() => {
     const token = localStorage.getItem("@rocketnotes:token");
     const user = localStorage.getItem("@rocketnotes:user");
-
+  
     if (token && user) {
       api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       setData({
@@ -71,6 +76,7 @@ function AuthProvider({ children }) {
       });
     }
   }, []);
+  
 
   return (
     <AuthContext.Provider
