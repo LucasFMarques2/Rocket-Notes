@@ -1,5 +1,4 @@
 import { FiPlus, FiX } from "react-icons/fi";
-
 import { Container } from "./styled";
 
 export function NoteItem({ isNew, value, onClick, ...rest }) {
@@ -7,7 +6,7 @@ export function NoteItem({ isNew, value, onClick, ...rest }) {
     <Container $isnew={isNew}>
       <input 
         type="text"
-        defaultValue={value}
+        value={value} 
         readOnly={!isNew}
         {...rest}
       />

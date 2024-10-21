@@ -32,4 +32,26 @@ export default createGlobalStyle`
   button:hover, a:hover {
     filter: brightness(0.9);
   }
+
+::-webkit-scrollbar {
+  width: 12px; 
+  height: 12px; 
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: orange; 
+  border-radius: 8px; 
+}
+
+::-webkit-scrollbar-track {
+  background: #333; 
+  border-radius: 8px; 
+}
+
+
+* {
+  scrollbar-width: thin; 
+  scrollbar-color: orange #333; 
+}
+
 `

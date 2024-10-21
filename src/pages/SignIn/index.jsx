@@ -21,8 +21,8 @@ export function SignIn() {
   return(
     <Container>
       <Form>
-        <h1>Rocket Notes</h1>
-        <p>Aplicação para salver e gerenciar seus links úteis</p>
+        <h1>MaluPad</h1>
+        <p>Aplicação para salver e gerenciar notas e seus links úteis</p>
 
         <h2>Faça seu login</h2>
 

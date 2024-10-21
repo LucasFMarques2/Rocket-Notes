@@ -1,6 +1,5 @@
-/* eslint-disable react/prop-types */
+// src/hooks/auth.js
 import { createContext, useContext, useState, useEffect } from "react";
-
 import { api } from "../services/api";
 
 export const AuthContext = createContext({});
@@ -22,7 +21,7 @@ function AuthProvider({ children }) {
       if (err.response) {
         alert(err.response.data.message);
       } else {
-        alert("Não foi posspivel logar");
+        alert("Não foi possível logar");
       }
     }
   }
@@ -62,7 +61,6 @@ function AuthProvider({ children }) {
       }
     }
   }
-  
 
   useEffect(() => {
     const token = localStorage.getItem("@rocketnotes:token");
@@ -76,7 +74,9 @@ function AuthProvider({ children }) {
       });
     }
   }, []);
-  
+
+  // Função para verificar se o usuário é admin
+  const isAdmin = data.user?.isAdmin === 1; // Aqui ajustamos a lógica
 
   return (
     <AuthContext.Provider
@@ -85,6 +85,7 @@ function AuthProvider({ children }) {
         signOut,
         updateProfile,
         user: data.user,
+        isAdmin, // Agora isAdmin está disponível no contexto
       }}
     >
       {children}
@@ -97,5 +98,4 @@ function useAuth() {
   return context;
 }
 
-// eslint-disable-next-line react-refresh/only-export-components
 export { AuthProvider, useAuth };
